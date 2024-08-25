@@ -28,7 +28,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     
-    <meta name='title' content='About Rabie Tours - Established in 1978 | Leading Travel Agency in Egypt' />
+    <meta name='title' content='About Audi Tours - Established in 2000 | Leading Travel Agency in Egypt' />
     <meta name='keywords' content='Airline tickets,booking flight,EgyptAir,Domestic flight,Fly to Dubai,Hajj and Umrah programs,Tourism Company&#xD;&#xA;rabietours' />
     <meta name='description' content='Rabie Tours, a premier travel agency founded in 1978, operates with 5 branches across Egypt. With a dedicated commitment to quality and exceptional service, we prioritize customer satisfaction. Our employees undergo comprehensive training programs to uphold the highest standards of excellence. Discover our range of products and services tailored to meet and exceed customer expectations.' />
 
@@ -44,7 +44,7 @@
     <link rel="icon" sizes="128x128" href="../Content/Site/imagescustomize/icon-128x128.png" />
     <link rel="canonical" href="about-us-1" />
 
-            <title>About Rabie Tours - Established in 1978 | Leading Travel Agency in Egypt</title>
+            <title>About Audi Tours - Established in 1978 | Leading Travel Agency in Egypt</title>
 
     <link href="../Content/Site/common.css" rel="stylesheet" type="text/css" />
 
@@ -293,689 +293,144 @@
             </div>
         </div>
         <!--HEAER_START-->
-                <div id="header">
-
-                   <header class="navbar-light header-sticky header-sticky-on">
-                    <div id="registration" title="Registration"></div>
-
-                
-
-
-
-<script src='https://www.google.com/recaptcha/api.js'></script>
-<script type="text/javascript">
-
-    function funPassword() {
-        var Password = $("#txtRegPassword").val();
-
-        if (!validatePassword(Password)) {
-            $("#dvRegError").show();
-            $("#dvRegError").html('The Password should be minimum 8 characters long and should include 1 Capital letter, 1 Small letter, 1 Number and 1 Special Character i.e., ! @ # $ &amp; *');
-            status = false;
-        }
-    }
-
-    function changeLoginTab(tab) {
-        if (tab == 'Register') {
-            $("#login-tab-title,#login-tab").removeClass("active");
-            $("#booking-tab-title,#booking-tab").removeClass("active");
-            $("#register-tab-title,#register-tab,#nav-register-tab").addClass("active");
-
-            $("#login-tab").removeClass("show");
-            $("#booking-tab").removeClass("show");
-            $("#register-tab").addClass("show");
-        }
-        else if (tab == 'Login') {
-            $("#register-tab-title,#register-tab").removeClass("active");
-            $("#booking-tab-title,#booking-tab").removeClass("active");
-            $("#login-tab-title,#login-tab,#nav-login-tab").addClass("active");
-
-            $("#booking-tab").removeClass("show");
-            $("#register-tab").removeClass("show");
-            $("#login-tab").addClass("show");
-        }
-        else if (tab == 'booking') {
-            $("#register-tab-title,#register-tab").removeClass("active");
-            $("#booking-tab-title,#booking-tab,#nav-booking-tab").addClass("active");
-            $("#login-tab-title,#login-tab,").removeClass("active");
-
-            $("#login-tab").removeClass("show");
-            $("#booking-tab").addClass("show");
-            $("#register-tab").removeClass("show");
-        }
-
-    }
-
-    function ResetPassword() {
-        var status = true;
-        var Email = $("#txtForgPassEmail").val();
-        if (Email == '') {
-            $("#txtForgPassEmail").addClass('input-validation-error');
-            status = false;
-        }
-        if (status == false) {
-            return false;
-        }
-        else {
-            var formData = $("#ForgetPassword").serialize();
-            $.post("/Home/ResetPassword", formData,
-                function (data) {
-                    //$("#forgot-password").unblock();
-                    if (data == "true") {
-                        //$("#forgot-password").dialog("close");
-                        $("#txtForgPassEmail").val('');
-                        alert('Forget password Link Successfully sent');
-                    } else {
-                        $("#dvForgot").show();
-                        $("#dvForgot").html(data);
-                        return false;
-                    }
-                });
-        }
-    }
-    function LoginMain() {
-        $("#logg").show();
-        $("#UserName").val('');
-        $("#Password").val('');
-        $("#dvSTPLoginFailure").hide();
-        //  $("#logg").slideUp("slow");
-    }
-    function CloseLogin() {
-        $("#logg").hide();
-        //  $("#logg").slideUp("slow");
-    }
-
-    function SelectNavigation() {
-        $(".topnavigation").removeClass('selecteds1')
-        $("#doneBg").removeClass();
-        var myUrl = window.location.href.toLowerCase();
-
-        if (myUrl.endsWith("/flight")) {
-            $("#li_tab_flight").addClass('selecteds1');
-        }
-        else if (myUrl.endsWith("/flightdeals")) {
-            $("#li_tab_flightdeals").addClass('selecteds1');
-        }
-        else if (myUrl.indexOf("/deals") != -1) {
-            $("#li_tab_deals").addClass('selecteds1');
-        }
-        else if (myUrl.indexOf("/hotel") != -1) {
-            $("#li_tab_hotel").addClass('selecteds1');
-        }
-        else if (myUrl.indexOf("/insurance") != -1) {
-            $("#li_tab_insurance").addClass('selecteds1');
-        }
-        else if (myUrl.indexOf("/theme") != -1) {
-            $("#li_tab_interests").addClass('selecteds1');
-        }
-        else if (myUrl.indexOf("/visa") != -1) {
-            $("#li_tab_visa").addClass('selecteds1');
-        }
-        else if (myUrl.indexOf("/tourpackages") != -1) {
-            $("#cms-tourpackages").addClass('selecteds1');
-            $("#selectedpackages").html('Tourpackages');
-        }
-        else if (myUrl.indexOf("/tour") != -1) {
-            $("#cms-tour").addClass('selecteds1');
-        }
-        else if (myUrl.indexOf("/orderapprove") != -1) {
-            $("#li_tab_orderapprove").addClass('selecteds1')
-        }
-        else if (myUrl.indexOf("/meetgreet") != -1) {
-            $("#li_tab_marhaba").addClass('selecteds1')
-        }
-        else if (myUrl.indexOf("/package") != -1) {
-            $("#li_tab_package").addClass('selecteds1')
-        }
-        else if (myUrl.indexOf("/cms/about-us-1") != -1) {
-            $("#cms-aboutus").addClass('selecteds1')
-        }
-        else if (myUrl.indexOf("/activitie") != -1) {
-            $("#cms-activitie").addClass('selecteds1')
-        }
-        else if (myUrl.indexOf("/staycation") != -1) {
-            $("#cms-staycation").addClass('selecteds1')
-        }
-        else if (myUrl.indexOf("/cms/services-1-1-1-1-1-1") != -1) {
-            $("#cms-services").addClass('selecteds1')
-        }
-        else if (myUrl.indexOf("/holidaypackages") != -1) {
-            $("#cms-packages").addClass('selecteds1');
-            $("#selectedpackages").html('Holiday Packages');
-        }
-        else if (myUrl.indexOf("/contactus") != -1) {
-            $("#cms-contactus").addClass('selecteds1')
-        }
-        else if (myUrl.indexOf("/login/travelagentregistration") != -1) {
-            $("#cms-b2bRegister").addClass('selecteds1')
-        }
-        else if (myUrl.indexOf("/cms/") != -1) {
-            $("#cms-home").removeClass('selecteds1')
-        }
-        else if (myUrl.indexOf("/cms?type=flight") != -1) {
-            $("#li_tab_flight").addClass('selecteds1');
-        }
-        else if (myUrl.indexOf("/cms?type=hotel") != -1) {
-            $("#li_tab_hotel").addClass('selecteds1');
-        }
-        else if (myUrl.indexOf("/cms?type=insurance") != -1) {
-            $("#li_tab_insurance").addClass('selecteds1');
-        }
-        else if (myUrl.indexOf("/car") != -1) {
-            $("#li_tab_car").addClass('selecteds1')
-        }
-        else if (myUrl.indexOf("/cms?type=visa") != -1) {
-            $("#li_tab_visa").addClass('selecteds1');
-        }
-        else if (myUrl.indexOf("/cms?type=tour") != -1) {
-            $("#cms-tour").addClass('selecteds1');
-        }
-        else {
-            $("#li_tab_flight").addClass('selecteds1');
-        }
-
-        if (myUrl.indexOf("/hotelpackages") != -1) {
-            $("#selectedpackages").html('Hotel Packages');
-        }
-        else if (myUrl.indexOf("/transferpackages") != -1) {
-            $("#selectedpackages").html('Transfer Packages');
-        }
-    }
-    $(document).ready(function () {
-        var IsExternalAccess = ('False');
-        var OriginUrl = 'https://www.rabietours.com/'; //getQuerystring('OriginUrl', '');
-        var LanId = '1';
-        ChangeExternalUrl(IsExternalAccess, OriginUrl, LanId);
-        SelectNavigation();
-        //
-        $("#forgot-password").load("/Home/ForgotPassword?GroupType=WLK");
-
-            $("#CustomerCurrency1").change(function () {
-                $.ajax({
-                    //url: '/Hotel/Home/ChangeCurrency',
-                    url: '/Home/ChangeCurrency?CC=' + $(this).val(),
-                    type: "POST",
-                    success: function (Data) {
-                        if (Data == 'Success') {
-                            location.reload();
-                        }
-                    }
-                })
-            });
-
-
-        $('#btnRetrieveBooking').click(function () {
-            var MasPnr = $('#txtSuperPnrNo').val();
-            var LstNm = $('#txtLastName').val();
-
-            if (MasPnr == "") {
-                alert("Please Enter Super PNR");
-                return false;
-            }
-            if (LstNm == "") {
-                alert("Please Enter Last Name");
-                return false;
-            }
-
-            //$('#dvbdytag').block({ message: null });
-
-            $.post("/Itinerary/Home/ViewSuperPNR?MPNRNo=" + MasPnr + "&LastName=" + LstNm, null,
-                function (data) {
-                    //$("#forgot-password").unblock();
-                    if (data == "SuccessSuperPNR") {
-                        window.location = "/Itinerary/Home/Open_MasterPNR?MasterPNRNo=" + MasPnr + "&LastName=" + LstNm;
-                    } else if (data == "SuccessPNR") {
-                        window.location = "/Flight/Home/Open_PNROnly?PNR=" + MasPnr;
-                    } else {
-                        //$('#dvbdytag').unblock();
-                        alert(data);
-                    }
-                })
-        });
-
-        if ('' == "Login") {
-            $("#abtnLogin").trigger("click");
-        }
-        else if ('' == "Register") {
-            $("#abtnRegister").trigger("click");
-        }
-        else if ('' == "FlightAdvanceSearch") {
-            $("#aFlightAdvanceSearch").trigger("click");
-        }
-
-
-
-
-    });
-
-    function GotoHome(url) {
-        parent.window.location = "http://" + url;
-    }
-
-
-    function ChangeCurrency(Currency) {
-        $.ajax({
-            url: '/Home/ChangeCurrency?CC=' + Currency,
-            type: "POST",
-            success: function (Data) {
-                if (Data == 'Success') {
-                    location.reload();
-                }
-            }
-        })
-    }
-
-    function UserChange(element, Type) {
-        var path = window.location.pathname;
-        var newddl = "false";
-        if ($(".ddlUsers").val() === undefined) {
-            newddl = "true";
-            var total = $(".DynamicUser").length;
-            var i = 0;
-            for (i = 0; i < total; i++) {
-                $("#DynamicUser_" + i).html("<select id='' class='in ddlUsers' onchange='SelectUser(" + i + ",$(this))'></select> ");
-            }
-        }
-        if (element.val() === "") {
-            $.post("/Flight/Home/MakeSessionNull", { Type: Type },
-                function (data) {
-                    $(".DynamicUser").html('');
-                    //refresh payment div
-
-
-                    if (path.contains("Flight")) {
-                        $("#Payment").load("/Flight/Home/Payment");
-                    }
-                    else if (path.contains("Insurance")) {
-                        $("#Payment").load("/Insurance/Home/Payment");
-                    }
-                    else if (path.contains("Hotel")) {
-                        $("#Payment").load("/Hotel/Home/Payment");
-                    }
-                });
-        } else {
-            $.getJSON("/Flight/Home/UserChange", { UserId: element.val(), Type: Type },
-                function (Data) {
-                    var select = $(".ddlUsers");
-                    select.empty();
-                    var SelectText = "";
-                    if (Type == 'Corporate') {
-                        SelectText = 'Select Corporate Traveler';
-                    } else {
-                        SelectText = 'Select SubAgent';
-                    }
-                    select.append($('<option/>', {
-                        value: "",
-                        text: SelectText
-                    }));
-                    $.each(Data, function (index, itemData) {
-                        select.append($('<option/>', {
-                            value: itemData.Value,
-                            text: itemData.Text
-                        }));
-                    });
-                    $("#login-logout").load("/Flight/Home/ChangeAmount", { UserId: element.val(), Type: Type });
-                    //refresh payment div
-                    if (path == "/Flight") {
-                        window.location = "/Flight";
-                    }
-                    else if (path == "/Hotel") {
-                        window.location = "/Hotel";
-                        Insurance
-                    }
-                    else if (path == "/Insurance") {
-                        window.location = "/Insurance";
-                    }
-                    else if (path.contains("Flight")) {
-                        $("#Payment").load("/Flight/Home/Payment");
-                    }
-                    else if (path.contains("Insurance")) {
-                        $("#Payment").load("/Insurance/Home/Payment");
-                    }
-                    else if (path.contains("Hotel")) {
-                        alert(path);
-                        $("#Payment").load("/Hotel/Home/Payment");
-                    }
-                });
-
-        }
-    }
-
-
-</script>
-<script type="text/javascript">
-    function addClassprofile(div) {
-        jQuery(div).toggleClass('hide-profile-menu')
-        return false;
-    }
-    function addClassretrievebooking(div) {
-        jQuery(div).toggleClass('hide-rievebooking-menu')
-        return false;
-    }
-
-    $(document).click(function (event) {
-        //if you click on anything except the modal itself or the "open modal" link, close the modal
-        if ($(event.target)[0].className != "retrieve-btn" && $(event.target)[0].className != "form-control") {
-            $(".retrieve-booking-form ").removeClass("hide-rievebooking-menu");
-        }
-        if ($(event.target)[0].className != "name") {
-
-            $(".profile-dropdown ").removeClass("hide-profile-menu");
-
-        }
-    });
-
-    function SaveRegister() {
-
-        $("#dvRegError").html('');
-        $("#dvRegError").hide();
-        var status = true;
-        var FirstName = $("#txtRegFirstName").val();
-        var LastName = $("#txtRegLastName").val();
-        var Email = $("#txtRegEmail").val();
-        var Password = $("#txtRegPassword").val();
-        if (FirstName == '') {
-            $("#txtRegFirstName").addClass('input-validation-error');
-            status = false;
-        }
-        if (LastName == '') {
-            $("#txtRegLastName").addClass('input-validation-error');
-            status = false;
-        }
-        if (Email == '') {
-            $("#txtRegEmail").addClass('input-validation-error');
-            status = false;
-        }
-
-        if (!validatePassword(Password)) {
-            $("#dvRegError").show();
-            $("#dvRegError").html('The Password should be minimum 8 characters long and should include 1 Capital letter, 1 Small letter, 1 Number and 1 Special Character i.e., ! @ # $ &amp; *');
-            status = false;
-        }
-
-        if (!validateEmail(Email)) {
-            $("#dvRegError").show();
-            $("#dvRegError").html('You have entered an invalid email address!');
-            status = false;
-        }
-        if (status == false) {
-            return false;
-        }
-        else {
-            $('#register-tab').block({ message: null });
-
-            var formData = $("#frmRegister").serialize();
-            $.post("/Home/CreateUser", formData,
-                function (data) {
-                    $('#register-tab').unblock();
-                    if ('' == "1") {
-                        grecaptcha.reset();
-                    }
-                    if (data == 'Success') {
-                        $("#registration").dialog("close");
-                        alert('Your account has successfully created. Please login to continue.');
-                        $("#txtRegFirstName,#txtRegLastName,#txtRegEmail,#txtRegPassword").val('');
-                    } else {
-                        $("#dvRegError").show();
-                        $("#dvRegError").html(data);
-                    }
-                });
-        }
-    }
-    function Country() {
-        //console.log($("#ddlcountry").val());
-        var id = $("#ddlcountry").val();
-        $.post("/Home/ChangeLanguage", { LanguageId: id },
-            function (data) {
-                if (data.IsSuccess == true) {
-                    location.href = window.location.pathname;
-                    if (location.href.includes("/cms") || location.href.includes("/Cms")) {
-                        location.href = "/";
-                    }
-                }
-            });
-
-    }
-    function SwitchLanguage(id) {
-        $.post("/Home/ChangeLanguage", { LanguageId: id },
-            function (data) {
-                if (data.IsSuccess == true) {
-                    location.href = window.location.pathname;
-                    if (location.href.includes("/cms") || location.href.includes("/Cms")) {
-                        location.href = "/";
-                    }
-                }
-            });
-    }
-
-    $(document).ready(function () {
-        $(".brandcloseicon").click(function () {
-            $(".barandclose").hide();
-        });
-    });
-</script>
-
-
-<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Cairo:200,300,400,600,700,900&amp;subset=arabic" rel="stylesheet">
-
-<div class="b2b-link">
-    <a href="../Login">
-        <p>Business Solution</p>
-    </a>
-</div>
-<div id="DivTimeOut" class="timeqount1 l" style="display:none;">
-    <div class="timeqount1-left">
-        <label>Time Out</label>
-    </div>
-    <div class="timeqount1-right">
-        <label class="time-no"><i>&nbsp;</i> <span id="">Minutes </span> </label>
-        <label class="second-no"><i>&nbsp;</i><span>Second </span> </label>
-    </div>
-    <div class="c"></div>
-</div>
-
-
-<header class="navbar-light header-sticky" id="header">
-    <!-- Logo Nav START -->
-    <nav class="navbar navbar-expand-xl">
-
-        <div class="container">
-            <!-- Logo START -->
-            <a class="/cms/home" href="../index.html" target=""><img src="../Uploads/CompanyLogo/Large/WhatsApp&#32;Image&#32;2023-07-24&#32;at&#32;11.07.49&#32;AM_Eng638258017798474610.jpeg" alt="" /></a>
-            <!-- Logo END -->
-            <!-- Responsive navbar toggler -->
-            <button class="navbar-toggler ms-auto ms-sm-0 p-0 p-sm-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-animation">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </span>
-                <span class="d-none d-sm-inline-block small">Menu</span>
-            </button>
-
-
-            <!-- Main navbar START -->
-            <div class="collapse navbar-collapse" id="navbarCollapse">
-                <ul class="navbar-nav navbar-nav-scroll nav-pills-primary-soft text-center ms-auto p-2 p-xl-0">
-                    <!-- Nav item Hotel -->
-                        <li class="nav-item" id="li_tab_home">
-
-                            <a class="nav-link" href="../index.html">
-
-                                Home
-                            </a>
-
-                        </li>
-                                <!-- Nav item Flight -->
-                                <li class="nav-item" id="li_tab_flight"> <a class="nav-link" href="../cms?type=flight"><i class="fa-solid fa-plane me-2"></i> Flight</a>	</li>
-                            <!-- Nav item visa -->
-                                <li class="nav-item" id="li_tab_visa"> <a class="nav-link" href="../cms?type=visa"><i class="fa-solid fa-car me-2"></i>  Visa</a></li>
-
-                            <li class="nav-item" id="cms-packages">
-
-                                <a class="nav-link" href="holidaypackages">
-
-                                    Holiday Packages
-
-                                </a>
-
-                            </li>
-                        <li class="nav-item" id="cms-aboutus">
-
-                            <a class="nav-link" href="about-us-1">
-
-                                About Us
-                            </a>
-
-                        </li>
-                        <li class="nav-item" id="cms-services">
-
-                            <a class="nav-link" href="services-1-1-1-1-1-1">
-
-                                Services
-                            </a>
-
-                        </li>
-                        <li class="nav-item" id="cms-contactus">
-
-                            <a class="nav-link" href="../Cms/ContactUs">
-
-                                Contact Us
-                            </a>
-
-                        </li>
-                    <li class="nav-item " id="cms-b2bRegister">
-                        <a class="nav-link" href="../Login/TravelAgentRegistration">
-
-                            B2B Register
-
-                        </a>
-                    </li>
-                </ul>
-
-                <ul class="navbar-nav navbar-nav-scroll me-auto">
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="about-us-1#" id="listingMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <span>English</span>
-                                </a>
-
-                                <ul class="dropdown-menu" aria-labelledby="listingMenu">
-                                                <li class="dropdown-submenu dropend" id="cms-packages">
-                                                    <a class="tx" href="javascript:void(0);" onclick='SwitchLanguage(2)' rel="external">
-                                                        <i class="fa fa-language" aria-hidden="true"></i>  العربية
-                                                    </a>
-                                                </li>
-                                </ul>
-                            </li>
-
-
-
-                </ul>
-
-
-
-
-            </div>
-
-
-            <!-- Main navbar END -->
-            <!-- Nav category menu START -->
-            <div class="navbar-collapse collapse" id="navbarCategoryCollapse">
-                <ul class="navbar-nav navbar-nav-scroll nav-pills-primary-soft text-center ms-auto1 p-2 p-xl-0">
-
-                        <li class="nav-item ms-2 d-none d-sm-block">
-                            <a id="abtnRegister" class="btn btn-sm btn-primary-soft mb-0" href="javascript:void(0);" onclick="changeLoginTab('Register');" data-bs-toggle="modal" data-bs-target="#login"> <i class="fa fa-user"></i> </a>
-                        </li>
-
-                </ul>
-            </div>
-
-
-        </div>
-    </nav>
-    <!-- Logo Nav END -->
-</header>
-
-
-<div class="header-bottom payment-request">
-    <div class="wapper">
-
-
-        <div class="c"></div>
-    </div>
-</div>
-<!-- Modal -->
-
-
-<div class="modal fade login-modal" id="forgot" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content forgot-password">
-            <div class="modal-body">
-                <div>
-                    <!-- Nav tabs -->
-                    <div class="tab-list">
-                        <ul class="nav-tabs" role="tablist">
-                            <li role="presentation" class="active login-tab"><a href="about-us-1#login-tab" aria-controls="login" role="tab" data-toggle="tab">Forgot your password?</a></li>
-                        </ul>
-                        <button type="button" class="dialog-close" data-dismiss="modal" aria-label="dialog-close"><span aria-hidden="true">&times;</span></button>
-                        <div class="c"></div>
-                    </div>
-                    <!-- Tab panes -->
-                    <div class="tab-content">
-                        <div role="tabpanel" class="tab-pane active" id="login-tabs">
-                            <form action="https://www.rabietours.com/Home/ForgotPassword" id="ForgetPassword" method="post" novalidate="novalidate">
-                                <input id="GroupType" name="GroupType" value="WLK" type="hidden">
-                                <div class="login-content">
-                                    <div id="dvForgot" class="errormsg close" style="display: none;">
-                                    </div>
-                                    <div class="login-row">
-                                        <p>
-                                            If you are having difficulty logging in, you can reset your password by typing the Email Address that you used while registration. You will receive an email with a new password.
-                                        </p>
-                                    </div>
-                                    <div class="login-row">
-                                        <div class="login-label"><label>Email</label></div>
-                                        <div class="login-texbox"><input id="txtForgPassEmail" class="form-control" name="EmailAddress" placeholder="" value="" type="text"></div>
-                                    </div>
-
-                                    <div class="login-btn">
-                                        <div class="loginbtn r">
-                                            <input class="btn-red" name="" value="Reset Password" type="button" onclick="return ResetPassword();">
-                                        </div>
-                                        <div class="c"></div>
-                                    </div>
-                                </div>
-                                <div class="login-footer">
-                                    Looking for our Business Solution? <a href="../Login">
-                                        <span>Access it here!</span>
+        <div id="header">
+
+            <header class="navbar-light header-sticky" id="header">
+                <!-- Logo Nav START -->
+                <nav class="navbar navbar-expand-xl">
+            
+                    <div class="container">
+                        <!-- Logo START -->
+                        <a class="/cms/home" href="index.html" target=""><img
+                                src="../Images/logo5.png"
+                                alt="" width="100px"/></a>
+                        <!-- Logo END -->
+                        <!-- Responsive navbar toggler -->
+                        <button class="navbar-toggler ms-auto ms-sm-0 p-0 p-sm-2" type="button"
+                            data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+                            aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-animation">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </span>
+                            <span class="d-none d-sm-inline-block small">Menu</span>
+                        </button>
+            
+            
+                        <!-- Main navbar START -->
+                        <div class="collapse navbar-collapse justify-content-center align-items-center" id="navbarCollapse">
+                            <ul
+                                class="navbar-nav navbar-nav-scroll nav-pills-primary-soft text-center ">
+                                <!-- Nav item Hotel -->
+                                <li class="nav-item" id="li_tab_home">
+            
+                                    <a class="nav-link" href="index.html">
+            
+                                        Home
                                     </a>
-                                    <div class="c"></div>
-                                </div>
-                            </form>
+            
+                                </li>
+            
+                                <li class="nav-item" id="cms-packages">
+            
+                                    <a class="nav-link" href="cms/holidaypackages">
+            
+                                        Domestic tourism
+            
+                                    </a>
+            
+                                </li>
+                                <li class="nav-item" id="cms-aboutus">
+            
+                                    <a class="nav-link" href="cms/about-us-1">
+            
+                                        About Us
+                                    </a>
+            
+                                </li>
+                                <li class="nav-item" id="cms-services">
+            
+                                    <a class="nav-link" href="cms/services-1-1-1-1-1-1">
+            
+                                        Services
+                                    </a>
+            
+                                </li>
+                                <li class="nav-item" id="cms-contactus">
+            
+                                    <a class="nav-link" href="Cms/ContactUs">
+            
+                                        Contact Us
+                                    </a>
+            
+                                </li>
+                                <li class="nav-item " id="cms-b2bRegister">
+                                    <a class="nav-link" href="Login/TravelAgentRegistration">
+            
+                                        B2B Register
+            
+                                    </a>
+                                </li>
+            
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="index.html#" id="listingMenu"
+                                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <span>English</span>
+                                    </a>
+            
+                                    <ul class="dropdown-menu" aria-labelledby="listingMenu">
+                                        <li class="dropdown-submenu dropend" id="cms-packages">
+                                            <a class="tx" href="javascript:void(0);" onclick='SwitchLanguage(2)'
+                                                rel="external">
+                                                <i class="fa fa-language" aria-hidden="true"></i> العربية
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+            
+            
+            
+                            </ul>
+            
+            
+            
+            
                         </div>
+            
+            
+                        <!-- Main navbar END -->
+                        <!-- Nav category menu START -->
+                        <!-- <div class="navbar-collapse collapse" id="navbarCategoryCollapse">
+                            <ul
+                                class="navbar-nav navbar-nav-scroll nav-pills-primary-soft text-center ms-auto1 p-2 p-xl-0">
+            
+                                <li class="nav-item ms-2 d-none d-sm-block">
+                                    <a id="abtnRegister" class="btn btn-sm btn-primary-soft mb-0"
+                                        href="javascript:void(0);" onclick="changeLoginTab('Register');"
+                                        data-bs-toggle="modal" data-bs-target="#login"> <i class="fa fa-user"></i>
+                                    </a>
+                                </li>
+            
+                            </ul>
+                        </div> -->
+            
+            
                     </div>
+                </nav>
+                <!-- Logo Nav END -->
+            </header>
+
+
+            <div class="add-left">
+                <div class="add-box">
+                </div>
+            </div>
+            <div class="add-right">
+                <div class="add-box">
                 </div>
             </div>
         </div>
-    </div>
-</div>
-
-
-                <div class="c"></div>
-
-                </header>
-
-
-                            <div class="add-left">
-                                <div class="add-box">
-                                </div>
-                            </div>
-                            <div class="add-right">
-                                <div class="add-box">
-                                </div>
-                            </div>
-                </div>
         <!--HEAER_END-->
         <div class="sitesteps">
             <div class="wapper">
@@ -1018,22 +473,21 @@
     <div class="container">
 <div class="row justify-content-between align-items-center">
 <div class="col-md-6">
-<h5 class="h1"><span style="color:#2c5f2d;"><span style="font-family:arial,helvetica,sans-serif;">About Rabie Tours</span></span></h5>
+<h5 class="h1"><span style="color:#2c5f2d;"><span style="font-family:arial,helvetica,sans-serif;">Audi Tours</span></span></h5>
 
-<p style="color: rgb(0, 102, 51);">Rabie Tours is a leading travel agency established in 1978 that operates with 5 branches covering all Egypt.<br />
-Rabie Tours is dedicated to pursuiting quality throughout its operation and is committed to delivering outstanding service to every one of its customers at all times.<br />
-We promote the highest standards of excellence in our employees through structured and comprehensive training and development programs, as we are constantly striving to ensure that the products and services we deliver will suite our customers and meet their expectation.</p>
-</div>
+<p style="color: rgb(0, 102, 51);">Audi Tours is a leading travel agency dedicated to delivering outstanding service to every customer at all times.<br />
+    We promote the highest standards of excellence in our employees through structured and comprehensive training and development programs.<br />
+    We constantly strive to ensure that the products and services we offer suit our customers and meet their expectations.</p></div>
 
 <div class="col-md-6">
 <div class="row mt-4 mt-md-0">
-<div class="col-7 ps-5 pe-2 mb-3"><img alt="638173223180473361" class="rounded aos aos-init aos-animate" data-aos="fade-right" data-aos-delay="200" data-aos-duration="1000" data-aos-easing="ease-in-out" src="../uploads/ckfinder/638199241259659355.jpg" /></div>
+<div class="col-7 ps-5 pe-2 mb-3"><img alt="638173223180473361" class="rounded aos aos-init aos-animate" data-aos="fade-right" data-aos-delay="200" data-aos-duration="1000" data-aos-easing="ease-in-out" src="../Images/aboutus/6.jpg" /></div>
 
-<div class="col-5 align-self-end ps-2 mb-3"><img alt="638173223410555070" class="rounded aos aos-init aos-animate" data-aos="fade-down" data-aos-delay="200" data-aos-duration="1000" src="../uploads/ckfinder/638199241569344210.jpeg" /></div>
+<div class="col-5 align-self-end ps-2 mb-3"><img alt="638173223410555070" class="rounded aos aos-init aos-animate" data-aos="fade-down" data-aos-delay="200" data-aos-duration="1000" src="../Images/aboutus/8.jpg" /></div>
 
-<div class="col-5 offset-1 ps-5 pe-2 mb-3"><img alt="638173223610093112" class="rounded aos aos-init aos-animate" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1500" src="../uploads/ckfinder/638199241842084487.jpg" /></div>
+<div class="col-5 offset-1 ps-5 pe-2 mb-3"><img alt="638173223610093112" class="rounded aos aos-init aos-animate" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1500" src="../Images/aboutus/5.jpg" /></div>
 
-<div class="col-5 px-2 mb-3"><img alt="" class="rounded aos aos-init aos-animate" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1500" src="../uploads/ckfinder/638200112491846659.jpg" /></div>
+<div class="col-5 px-2 mb-3"><img alt="" class="rounded aos aos-init aos-animate" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1500" src="../Images/aboutus/4.jpg" /></div>
 </div>
 </div>
 </div>
@@ -1043,9 +497,15 @@ We promote the highest standards of excellence in our employees through structur
 <div class="col-sm-6 col-lg-3 mt-5 mt-lg-0">
 <h6 class="text-primary" style="color: #FFC107 !important;">01</h6>
 
-<h4 class="mb-2" style="color: #063;">Corporate Booking</h4>
+<h4 class="mb-2" style="color: #063;">Corporate Travel Services</h4>
 
-<p><span style="font-family:arial,helvetica,sans-serif;"><span style="font-size: 16px; white-space: pre-wrap;">Rabie Tours upholds values of quality, customer service, employee development, satisfaction, integrity, innovation, and sustainable growth. We strive to deliver exceptional experiences, foster professional growth, maintain transparency, and adapt to evolving customer needs.</span></span></p>
+<p><span style="font-family:arial,helvetica,sans-serif;"><span style="font-size: 16px; white-space: pre-wrap;">Audi Tours upholds values of quality, customer service, employee development, satisfaction, integrity, innovation, and sustainable growth. We strive to deliver exceptional experiences, foster professional growth, maintain transparency, and adapt to evolving customer needs.
+
+
+
+
+
+</span></span></p>
 </div>
 
 <div class="col-sm-6 col-lg-3 mt-5 mt-lg-0">
@@ -1053,7 +513,7 @@ We promote the highest standards of excellence in our employees through structur
 
 <h4 class="mb-2" style="color: #063;">Our Vision</h4>
 
-<p><span style="font-family:arial,helvetica,sans-serif;">Setting new industry standards, Rabie Tours aims to be Egypt&#39;s premier choice for exceptional travel experiences. We prioritize quality, empower our team, and exceed customer expectations, becoming the epitome of excellence in the travel industry.</span></p>
+<p><span style="font-family:arial,helvetica,sans-serif;">Setting new industry standards, Audi Tours aims to be Egypt&#39;s premier choice for exceptional travel experiences. We prioritize quality, empower our team, and exceed customer expectations, striving to become the epitome of excellence in the travel industry.</span></p>
 </div>
 
 <div class="col-sm-6 col-lg-3 mt-5 mt-lg-0">
@@ -1061,7 +521,13 @@ We promote the highest standards of excellence in our employees through structur
 
 <h4 class="mb-2" style="color: #063;">Our Mission</h4>
 
-<p><span style="font-family:arial,helvetica,sans-serif;">Efficiency, Flexibility &amp; Quality Service with a Personal Touch. State-of-the-art technology, competitive prices, and total client satisfaction. Exceeding goals, pursuing excellence, and profitable growth through market analysis and prudent financial management.</span></p>
+<p><span style="font-family:arial,helvetica,sans-serif;">Efficiency, Flexibility &amp; Quality Service with a Personal Touch. State-of-the-art technology, competitive prices, and total client satisfaction. We exceed goals, pursue excellence, and achieve profitable growth through market analysis and prudent financial management.
+
+
+
+
+
+</span></p>
 </div>
 
 <div class="col-sm-6 col-lg-3 mt-5 mt-lg-0">
@@ -1069,7 +535,8 @@ We promote the highest standards of excellence in our employees through structur
 
 <h4 class="mb-2" style="color: #063;">Our Values</h4>
 
-<p><span style="font-family: Söhne, ui-sans-serif, system-ui, -apple-system, &quot;Segoe UI&quot;, Roboto, Ubuntu, Cantarell, &quot;Noto Sans&quot;, sans-serif, &quot;Helvetica Neue&quot;, Arial, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;; font-size: 16px; white-space: pre-wrap;">Rabie Tours upholds values of quality, customer service, employee development, satisfaction, integrity, innovation, and sustainable growth. We strive to deliver exceptional experiences, foster professional growth, maintain transparency, and adapt to evolving customer needs.</span></p>
+<p><span style="font-family: Söhne, ui-sans-serif, system-ui, -apple-system, &quot;Segoe UI&quot;, Roboto, Ubuntu, Cantarell, &quot;Noto Sans&quot;, sans-serif, &quot;Helvetica Neue&quot;, Arial, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;; font-size: 16px; white-space: pre-wrap;">Audi Tours upholds the values of quality, customer service, employee development, satisfaction, integrity, innovation, and sustainable growth. We strive to deliver exceptional experiences, foster professional growth, maintain transparency, and adapt to evolving customer needs.
+</span></p>
 </div>
 </div>
 <!-- service list end --></div>
@@ -1922,163 +1389,189 @@ We promote the highest standards of excellence in our employees through structur
 
         </div>
 
-                <div id="footer">
-                    <!--here FOOTER is dynamic-->
-                            
+        <div id="footer">
+            <!--here FOOTER is dynamic-->
 
 
-<script>
-    var add_url = "/Cms/Newsletter/NewsletterSubscription?email=";
-    $(document).on("click", '#subscribe', function () {
-        $('#subscribe-modal').modal('show');
-        $('#modalContent').load(add_url + $("#subscribeuseremail").val(), function () {
-        });
-    });
 
-    $(document).on("click", "#saveNewsLetter", function () {
-        var $form = $(this).closest('form');
-        if ($form.valid()) {
-            $("#saveNewsLetter").attr('disabled', true);
-            $.post($form.attr('action'), $form.serialize(), function (d) {
-                $("#saveNewsLetter").attr('disabled', false);
-                if (d.Success == true) {
-                    $("#btnclose").trigger("click");
-                    alert('Thank you for subscription.');
-                }
-                else {
-                    alert(d.Error);
-                }
-            });
+            <script>
+                var add_url = "/Cms/Newsletter/NewsletterSubscription?email=";
+                $(document).on("click", '#subscribe', function () {
+                    $('#subscribe-modal').modal('show');
+                    $('#modalContent').load(add_url + $("#subscribeuseremail").val(), function () {
+                    });
+                });
 
-        }
-    });
+                $(document).on("click", "#saveNewsLetter", function () {
+                    var $form = $(this).closest('form');
+                    if ($form.valid()) {
+                        $("#saveNewsLetter").attr('disabled', true);
+                        $.post($form.attr('action'), $form.serialize(), function (d) {
+                            $("#saveNewsLetter").attr('disabled', false);
+                            if (d.Success == true) {
+                                $("#btnclose").trigger("click");
+                                alert('Thank you for subscription.');
+                            }
+                            else {
+                                alert(d.Error);
+                            }
+                        });
 
-    $(document).ready(function () {
-        var name = GetParameterValues('Page');
-        if (name == 'NewsLetter') {
-            $('#subscribe-modal').modal('show');
-            $('#modalContent').load(add_url + $("#subscribeuseremail").val(), function () {
-            });
-        }
-        function GetParameterValues(param) {
-            var url = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
-            for (var i = 0; i < url.length; i++) {
-                var urlparam = url[i].split('=');
-                if (urlparam[0] == param) {
-                    return urlparam[1];
-                }
-            }
-        }
-    });
+                    }
+                });
 
-</script>
+                $(document).ready(function () {
+                    var name = GetParameterValues('Page');
+                    if (name == 'NewsLetter') {
+                        $('#subscribe-modal').modal('show');
+                        $('#modalContent').load(add_url + $("#subscribeuseremail").val(), function () {
+                        });
+                    }
+                    function GetParameterValues(param) {
+                        var url = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+                        for (var i = 0; i < url.length; i++) {
+                            var urlparam = url[i].split('=');
+                            if (urlparam[0] == param) {
+                                return urlparam[1];
+                            }
+                        }
+                    }
+                });
+
+            </script>
 
 
-<div class="rs-footer footer-style-1">
-    <div class="container">
-        <div class="row">
+            <div class="rs-footer footer-style-1 section_footer">
+                <div class="container">
+                    <div class="row">
 
-            <div class="col-lg-4 footer-1">
-                <section id="contact_widget-2" class="widget widget_contact_widget">
+                        <div class="col-lg-4 footer-1">
+                            <section id="contact_widget-2" class="widget widget_contact_widget">
 
-                    <h5 class="footer-title">Contact Us </h5>
+                                <h5 class="footer-title">Contact Us </h5>
 
-                    <div class="fa-ul">
+                                <div class="fa-ul">
 
-                        <p><label>  <span>Adress : </span>     37 Ahmed Orabi street - Cairo  Egypt </label></p>
+                                    <p><label> <span>Adress : </span> 26 Sherif Pasha Street - Cairo Egypt</label></p>
 
-                        <p><label><span> Phone : </span> <a href="tel:&#x2B;201222791777" target="_blank"> &#x2B;201222791777 </a> </label></p>
+                                    <p><label><span> Phone : </span> <a href="tel:&#x2B;201061646872" target="_blank">
+                                                &#x2B;201061646872 </a> </label></p>
 
-                        <p><label><span>Email : </span><a href="mailto:aviation@rabietours.com">aviation@rabietours.com</a></label></p>
+                                    <p><label><span>Email : </span><a
+                                                href="mailto:contact@Auditours.com">contact@Auditours.com</a></label>
+                                    </p>
+
+                                </div>
+
+                                <ul class="footer_social">
+                                    <li>
+                                        <a href="https://www.facebook.com/AudiTourrs" target="_blank"><span><i
+                                                    class="fab fa-facebook-f" aria-hidden="true"></i></span></a>
+                                    </li>
+
+                                    <li>
+                                        <a href="https://www.linkedin.com/company/AudiTourrs" target="_blank"><span><i
+                                                    class="fab fa-linkedin-in" aria-hidden="true"></i></span></a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.twitter.com/AudiTourrs" target="_blank"><span><i
+                                                    class="fab fa-twitter" aria-hidden="true"></i></span></a>
+                                    </li>
+
+                                    <li>
+                                        <a href="https://www.instagram.com/AudiTourrs/ " target="_blank"><span><i
+                                                    class="fab fa-instagram" aria-hidden="true"></i></span></a>
+                                    </li>
+
+                                </ul>
+
+                            </section>
+
+
+
+                        </div>
+
+                        <div class="col-lg-4 footer-2">
+                            <section id="nav_menu-2" class="widget widget_nav_menu">
+                                <h5 class="footer-title">Quick Link</h5>
+                                <div class="menu-footer-services-container">
+                                    <ul id="menu-footer-services" class="menu">
+
+
+                                        <li id="menu-item-6767"
+                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6767">
+                                            <a href="index.html">Home</a></li>
+                                        <li id="menu-item-6767"
+                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6767">
+                                            <a href="Cms/ContactUs"> Contact Us</a></li>
+                                        <li id="menu-item-6767"
+                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6767">
+                                            <a href="cms/about-us-1"> About Us</a></li>
+                                        <li id="menu-item-6767"
+                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6767">
+                                            <a href="cms/privacypolicy-1-1"> Privacy Policy</a></li>
+                                        <li id="menu-item-6767"
+                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6767">
+                                            <a href="cms/services-1-1-1-1-1-1"> Services</a></li>
+                                        <li id="menu-item-6767"
+                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6767">
+                                            <a href="cms/termsandcondition-1-1"> Terms &amp; Condition</a></li>
+                                        <li id="menu-item-6767"
+                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6767">
+                                            <a href="Cms/HolidayPackages/&amp;"> Holidays</a></li>
+
+
+                                    </ul>
+                                </div>
+                            </section>
+                        </div>
+
+                        <div class="col-lg-4 footer-0">
+                            <section id="custom_html-2" class="widget_text widget widget_custom_html">
+                                <h5 class="footer-title">
+                                    <a class="me-0" href="index.html" target="">
+
+                                        <img class="footer-logo" src="../Images/logo2 .png" width="150px"/>
+                                    </a>
+                                </h5>
+                                <div class="textwidget custom-html-widget">Rabietours Company was established in 1978
+                                    and since that time it has been working in tourism and has specialized more in Hajj
+                                    &amp; The Umrah and now it is one of the leading companies in this field.</div>
+
+                            </section>
+
+                        </div>
 
                     </div>
-
-                    <ul class="footer_social">
-                        <li>
-                            <a href="https://www.facebook.com/rabietours" target="_blank"><span><i class="fab fa-facebook-f" aria-hidden="true"></i></span></a>
-                        </li>
-
-                        <li>
-                            <a href="https://www.linkedin.com/company/rabie-tours" target="_blank"><span><i class="fab fa-linkedin-in" aria-hidden="true"></i></span></a>
-                        </li>
-                        <li>
-                            <a href="https://www.twitter.com/rabietours" target="_blank"><span><i class="fab fa-twitter" aria-hidden="true"></i></span></a>
-                        </li>
-
-                        <li>
-                            <a href="https://www.instagram.com/rabietours/ " target="_blank"><span><i class="fab fa-instagram" aria-hidden="true"></i></span></a>
-                        </li>
-
-                    </ul>
-
-                </section>
-
-
+                </div>
 
             </div>
 
-            <div class="col-lg-4 footer-2">
-                <section id="nav_menu-2" class="widget widget_nav_menu">
-                    <h5 class="footer-title">Quick Link</h5>
-                    <div class="menu-footer-services-container">
-                        <ul id="menu-footer-services" class="menu">
+            <div class="container">
 
-                            
-                            <li id="menu-item-6767" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6767"><a href="../index.html">Home</a></li>
-                            <li id="menu-item-6767" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6767"><a href="../Cms/ContactUs"> Contact Us</a></li>
-                            <li id="menu-item-6767" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6767"><a href="about-us-1"> About Us</a></li>
-                            <li id="menu-item-6767" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6767"><a href="privacypolicy-1-1"> Privacy Policy</a></li>
-                            <li id="menu-item-6767" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6767"><a href="services-1-1-1-1-1-1"> Services</a></li>
-                            <li id="menu-item-6767" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6767"><a href="termsandcondition-1-1"> Terms &amp; Condition</a></li>
-                            <li id="menu-item-6767" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6767"><a href="../Cms/HolidayPackages/&amp;"> Holidays</a></li>
+                <div class="footer-bottom_copyright">
 
+                    <p class="r">
 
-                        </ul>
-                    </div>
-                </section>
-            </div>
+                        Copyright © 2019-2023 Audi Tours . All Rights Reserved | <a
+                            title="Powered by Systrixit Solutions" href="https://www.systrixit.com">
+                            <!-- <img class="x-logo" src="Content/Site/imagescustomize/x-iocn.png" /></a> -->
 
-            <div class="col-lg-4 footer-0">
-                <section id="custom_html-2" class="widget_text widget widget_custom_html">
-                    <h5 class="footer-title">
-                        <a class="me-0" href="../index.html" target="">
+                    </p>
 
-                            <img class="footer-logo" src="../Content/Site/imagescustomize/footer-logo.png" />
+                    <!-- <h6 class="l">
+                        <a href="index.html#"><img src="Content/Site/imagescustomize/visa-icon.png" alt="visa-icon">
                         </a>
-                    </h5>
-                    <div class="textwidget custom-html-widget">Rabietours Company was established in 1978 and since that time it has been working in tourism and has specialized more in Hajj &amp; The Umrah and now it is one of the leading companies in this field.</div>
+                    </h6> -->
 
-                </section>
+                    <div class="c"></div>
+                </div>
 
             </div>
+
+
 
         </div>
-    </div>
-
-</div>
-
-<div class="container">
-
-    <div class="footer-bottom_copyright">
-
-        <p class="r">
-
-            Copyright © 2019-2023  Al Rabie Tours . All Rights Reserved  | <a title="Powered by Systrixit Solutions" href="https://www.systrixit.com"><img class="x-logo" src="../Content/Site/imagescustomize/x-iocn.png" /></a>
-
-        </p>
-
-        <h6 class="l">
-            <a href="about-us-1#"><img src="../Content/Site/imagescustomize/visa-icon.png" alt="visa-icon"> </a>
-        </h6>
-
-        <div class="c"></div>
-    </div>
-
-</div>
-
-
-
-                </div>
 
         <div>
             

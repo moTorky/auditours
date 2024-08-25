@@ -4,11 +4,11 @@
 /*----------Gofiro  trave Customize Css ------*/
 
 :root {
- --main-bg-color:#006633;
+ --main-bg-color:#4c5c96;
  --main-hover-color:#FFC107;
  --main-color-primary:#DDD;
- --main-color-primary-A:#006633;
- --main-color-primary-B:#006633;
+ --main-color-primary-A:#4c5c96;
+ --main-color-primary-B:#4c5c96;
  --main-gradient-color: linear-gradient(50deg, #006633, #FFC107);
  --main-gradient-hover-color: linear-gradient(50deg, #FFC107, #006633);
  --bs-btn-hover-bg :#006633;
@@ -23,16 +23,16 @@
     --bs-btn-focus-shadow-rgb: 107, 95, 223;
     --bs-btn-active-color: #fff;
     --bs-btn-active-bg: #FFC107;
-    --bs-btn-active-border-color:#006633;
+    --bs-btn-active-border-color:#4c5c96;
     --bs-btn-active-shadow: none;
     --bs-btn-disabled-color: #fff;
-    --bs-btn-disabled-bg: #006633;
-    --bs-btn-disabled-border-color:#006633;
-     --bs-primary:#006633;
-     --bs-link-color:#006633;
-    --bs-link-color: #006633;
+    --bs-btn-disabled-bg: #4c5c96;
+    --bs-btn-disabled-border-color:#4c5c96;
+     --bs-primary:#4c5c96;
+     --bs-link-color:#4c5c96;
+    --bs-link-color: #4c5c96;
 	
-	--tct-main-bg-color: #006633;
+	--tct-main-bg-color: #4c5c96;
     --tct-main-txt-color: #314C87;
     --tct-main-sec-txt-color: #1395FE;
     --tct-welcom-bg-color: #FFC107;
@@ -4777,7 +4777,7 @@ a.footer-logo {
     background-image: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.2), transparent);
     padding: 10px 0;
     border-top: 1px solid rgba(255, 255, 255, .3);
-    border-bottom: 1px solid rgba(255, 255, 255, .3);
+    /* border-bottom: 1px solid rgba(255, 255, 255, .3); */
     letter-spacing: .6px;
     text-shadow: 0 3px 3px rgba(0, 0, 0, .1607843137);
     margin: 0
@@ -4862,7 +4862,7 @@ a.footer-logo {
 .home-booking-form .in{border-radius: 5px;}
 .home-booking-form .align-items-center .btn-link {color:#fff;}
 .home-booking-form .guest-selector-dropdown.show .btn-link {color:#006633;}
-.navbar-expand-xl{padding:5px 0;}
+.navbar-expand-xl{padding:10px 0;}
 #header .nav-link {padding:12px;}
 .hotelgroups-icon a{color:var(--main-bg-color);}
 .home-booking-form  .directflightsonly {display:none;}

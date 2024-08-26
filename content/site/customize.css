@@ -9,8 +9,8 @@
  --main-color-primary:#DDD;
  --main-color-primary-A:#4c5c96;
  --main-color-primary-B:#4c5c96;
- --main-gradient-color: linear-gradient(50deg, #006633, #FFC107);
- --main-gradient-hover-color: linear-gradient(50deg, #FFC107, #006633);
+ --main-gradient-color: linear-gradient(70deg,#4c5c96 , #FFC107);
+ --main-gradient-hover-color: linear-gradient(50deg, #FFC107, #4c5c96);
  --bs-btn-hover-bg :#006633;
  --common-font:  'Lato', sans-serif;
  --bs-body-font-family: 'Lato', sans-serif;
@@ -4842,7 +4842,7 @@ a.footer-logo {
 .home-booking-form .bg-light {background-color: transparent !important;}
 .home-booking-form .btn-flip-icon{display:none;}
 .home-booking-form .p-3 {padding:0rem !important;}
-.tabcontent-bg { border-radius:5px;color: #000;background:rgba(0,102,51, 0.97);color: #000;}
+.tabcontent-bg { border-radius:5px;color: #000;background:#142d4c;color: #000;}
 .home-booking-form .mb-1{color: #fff;}
 #HotelSearchForm .hotel-night {display:none;}
 .home-booking-form #tab-flight .flight-box .col-lg-3 {width: 21%;}

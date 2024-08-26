@@ -295,680 +295,131 @@
         <!--HEAER_START-->
                 <div id="header">
 
-                   <header class="navbar-light header-sticky header-sticky-on">
-                    <div id="registration" title="Registration"></div>
-
-                
-
-
-
-<script src='https://www.google.com/recaptcha/api.js'></script>
-<script type="text/javascript">
-
-    function funPassword() {
-        var Password = $("#txtRegPassword").val();
-
-        if (!validatePassword(Password)) {
-            $("#dvRegError").show();
-            $("#dvRegError").html('The Password should be minimum 8 characters long and should include 1 Capital letter, 1 Small letter, 1 Number and 1 Special Character i.e., ! @ # $ &amp; *');
-            status = false;
-        }
-    }
-
-    function changeLoginTab(tab) {
-        if (tab == 'Register') {
-            $("#login-tab-title,#login-tab").removeClass("active");
-            $("#booking-tab-title,#booking-tab").removeClass("active");
-            $("#register-tab-title,#register-tab,#nav-register-tab").addClass("active");
-
-            $("#login-tab").removeClass("show");
-            $("#booking-tab").removeClass("show");
-            $("#register-tab").addClass("show");
-        }
-        else if (tab == 'Login') {
-            $("#register-tab-title,#register-tab").removeClass("active");
-            $("#booking-tab-title,#booking-tab").removeClass("active");
-            $("#login-tab-title,#login-tab,#nav-login-tab").addClass("active");
-
-            $("#booking-tab").removeClass("show");
-            $("#register-tab").removeClass("show");
-            $("#login-tab").addClass("show");
-        }
-        else if (tab == 'booking') {
-            $("#register-tab-title,#register-tab").removeClass("active");
-            $("#booking-tab-title,#booking-tab,#nav-booking-tab").addClass("active");
-            $("#login-tab-title,#login-tab,").removeClass("active");
-
-            $("#login-tab").removeClass("show");
-            $("#booking-tab").addClass("show");
-            $("#register-tab").removeClass("show");
-        }
-
-    }
-
-    function ResetPassword() {
-        var status = true;
-        var Email = $("#txtForgPassEmail").val();
-        if (Email == '') {
-            $("#txtForgPassEmail").addClass('input-validation-error');
-            status = false;
-        }
-        if (status == false) {
-            return false;
-        }
-        else {
-            var formData = $("#ForgetPassword").serialize();
-            $.post("/Home/ResetPassword", formData,
-                function (data) {
-                    //$("#forgot-password").unblock();
-                    if (data == "true") {
-                        //$("#forgot-password").dialog("close");
-                        $("#txtForgPassEmail").val('');
-                        alert('Forget password Link Successfully sent');
-                    } else {
-                        $("#dvForgot").show();
-                        $("#dvForgot").html(data);
-                        return false;
-                    }
-                });
-        }
-    }
-    function LoginMain() {
-        $("#logg").show();
-        $("#UserName").val('');
-        $("#Password").val('');
-        $("#dvSTPLoginFailure").hide();
-        //  $("#logg").slideUp("slow");
-    }
-    function CloseLogin() {
-        $("#logg").hide();
-        //  $("#logg").slideUp("slow");
-    }
-
-    function SelectNavigation() {
-        $(".topnavigation").removeClass('selecteds1')
-        $("#doneBg").removeClass();
-        var myUrl = window.location.href.toLowerCase();
-
-        if (myUrl.endsWith("/flight")) {
-            $("#li_tab_flight").addClass('selecteds1');
-        }
-        else if (myUrl.endsWith("/flightdeals")) {
-            $("#li_tab_flightdeals").addClass('selecteds1');
-        }
-        else if (myUrl.indexOf("/deals") != -1) {
-            $("#li_tab_deals").addClass('selecteds1');
-        }
-        else if (myUrl.indexOf("/hotel") != -1) {
-            $("#li_tab_hotel").addClass('selecteds1');
-        }
-        else if (myUrl.indexOf("/insurance") != -1) {
-            $("#li_tab_insurance").addClass('selecteds1');
-        }
-        else if (myUrl.indexOf("/theme") != -1) {
-            $("#li_tab_interests").addClass('selecteds1');
-        }
-        else if (myUrl.indexOf("/visa") != -1) {
-            $("#li_tab_visa").addClass('selecteds1');
-        }
-        else if (myUrl.indexOf("/tourpackages") != -1) {
-            $("#cms-tourpackages").addClass('selecteds1');
-            $("#selectedpackages").html('Tourpackages');
-        }
-        else if (myUrl.indexOf("/tour") != -1) {
-            $("#cms-tour").addClass('selecteds1');
-        }
-        else if (myUrl.indexOf("/orderapprove") != -1) {
-            $("#li_tab_orderapprove").addClass('selecteds1')
-        }
-        else if (myUrl.indexOf("/meetgreet") != -1) {
-            $("#li_tab_marhaba").addClass('selecteds1')
-        }
-        else if (myUrl.indexOf("/package") != -1) {
-            $("#li_tab_package").addClass('selecteds1')
-        }
-        else if (myUrl.indexOf("/cms/about-us-1") != -1) {
-            $("#cms-aboutus").addClass('selecteds1')
-        }
-        else if (myUrl.indexOf("/activitie") != -1) {
-            $("#cms-activitie").addClass('selecteds1')
-        }
-        else if (myUrl.indexOf("/staycation") != -1) {
-            $("#cms-staycation").addClass('selecteds1')
-        }
-        else if (myUrl.indexOf("/cms/services-1-1-1-1-1-1") != -1) {
-            $("#cms-services").addClass('selecteds1')
-        }
-        else if (myUrl.indexOf("/holidaypackages") != -1) {
-            $("#cms-packages").addClass('selecteds1');
-            $("#selectedpackages").html('Holiday Packages');
-        }
-        else if (myUrl.indexOf("/contactus") != -1) {
-            $("#cms-contactus").addClass('selecteds1')
-        }
-        else if (myUrl.indexOf("/login/travelagentregistration") != -1) {
-            $("#cms-b2bRegister").addClass('selecteds1')
-        }
-        else if (myUrl.indexOf("/cms/") != -1) {
-            $("#cms-home").removeClass('selecteds1')
-        }
-        else if (myUrl.indexOf("/cms?type=flight") != -1) {
-            $("#li_tab_flight").addClass('selecteds1');
-        }
-        else if (myUrl.indexOf("/cms?type=hotel") != -1) {
-            $("#li_tab_hotel").addClass('selecteds1');
-        }
-        else if (myUrl.indexOf("/cms?type=insurance") != -1) {
-            $("#li_tab_insurance").addClass('selecteds1');
-        }
-        else if (myUrl.indexOf("/car") != -1) {
-            $("#li_tab_car").addClass('selecteds1')
-        }
-        else if (myUrl.indexOf("/cms?type=visa") != -1) {
-            $("#li_tab_visa").addClass('selecteds1');
-        }
-        else if (myUrl.indexOf("/cms?type=tour") != -1) {
-            $("#cms-tour").addClass('selecteds1');
-        }
-        else {
-            $("#li_tab_flight").addClass('selecteds1');
-        }
-
-        if (myUrl.indexOf("/hotelpackages") != -1) {
-            $("#selectedpackages").html('Hotel Packages');
-        }
-        else if (myUrl.indexOf("/transferpackages") != -1) {
-            $("#selectedpackages").html('Transfer Packages');
-        }
-    }
-    $(document).ready(function () {
-        var IsExternalAccess = ('False');
-        var OriginUrl = 'https://www.rabietours.com/'; //getQuerystring('OriginUrl', '');
-        var LanId = '1';
-        ChangeExternalUrl(IsExternalAccess, OriginUrl, LanId);
-        SelectNavigation();
-        //
-        $("#forgot-password").load("/Home/ForgotPassword?GroupType=WLK");
-
-            $("#CustomerCurrency1").change(function () {
-                $.ajax({
-                    //url: '/Hotel/Home/ChangeCurrency',
-                    url: '/Home/ChangeCurrency?CC=' + $(this).val(),
-                    type: "POST",
-                    success: function (Data) {
-                        if (Data == 'Success') {
-                            location.reload();
-                        }
-                    }
-                })
-            });
-
-
-        $('#btnRetrieveBooking').click(function () {
-            var MasPnr = $('#txtSuperPnrNo').val();
-            var LstNm = $('#txtLastName').val();
-
-            if (MasPnr == "") {
-                alert("Please Enter Super PNR");
-                return false;
-            }
-            if (LstNm == "") {
-                alert("Please Enter Last Name");
-                return false;
-            }
-
-            //$('#dvbdytag').block({ message: null });
-
-            $.post("/Itinerary/Home/ViewSuperPNR?MPNRNo=" + MasPnr + "&LastName=" + LstNm, null,
-                function (data) {
-                    //$("#forgot-password").unblock();
-                    if (data == "SuccessSuperPNR") {
-                        window.location = "/Itinerary/Home/Open_MasterPNR?MasterPNRNo=" + MasPnr + "&LastName=" + LstNm;
-                    } else if (data == "SuccessPNR") {
-                        window.location = "/Flight/Home/Open_PNROnly?PNR=" + MasPnr;
-                    } else {
-                        //$('#dvbdytag').unblock();
-                        alert(data);
-                    }
-                })
-        });
-
-        if ('' == "Login") {
-            $("#abtnLogin").trigger("click");
-        }
-        else if ('' == "Register") {
-            $("#abtnRegister").trigger("click");
-        }
-        else if ('' == "FlightAdvanceSearch") {
-            $("#aFlightAdvanceSearch").trigger("click");
-        }
-
-
-
-
-    });
-
-    function GotoHome(url) {
-        parent.window.location = "http://" + url;
-    }
-
-
-    function ChangeCurrency(Currency) {
-        $.ajax({
-            url: '/Home/ChangeCurrency?CC=' + Currency,
-            type: "POST",
-            success: function (Data) {
-                if (Data == 'Success') {
-                    location.reload();
-                }
-            }
-        })
-    }
-
-    function UserChange(element, Type) {
-        var path = window.location.pathname;
-        var newddl = "false";
-        if ($(".ddlUsers").val() === undefined) {
-            newddl = "true";
-            var total = $(".DynamicUser").length;
-            var i = 0;
-            for (i = 0; i < total; i++) {
-                $("#DynamicUser_" + i).html("<select id='' class='in ddlUsers' onchange='SelectUser(" + i + ",$(this))'></select> ");
-            }
-        }
-        if (element.val() === "") {
-            $.post("/Flight/Home/MakeSessionNull", { Type: Type },
-                function (data) {
-                    $(".DynamicUser").html('');
-                    //refresh payment div
-
-
-                    if (path.contains("Flight")) {
-                        $("#Payment").load("/Flight/Home/Payment");
-                    }
-                    else if (path.contains("Insurance")) {
-                        $("#Payment").load("/Insurance/Home/Payment");
-                    }
-                    else if (path.contains("Hotel")) {
-                        $("#Payment").load("/Hotel/Home/Payment");
-                    }
-                });
-        } else {
-            $.getJSON("/Flight/Home/UserChange", { UserId: element.val(), Type: Type },
-                function (Data) {
-                    var select = $(".ddlUsers");
-                    select.empty();
-                    var SelectText = "";
-                    if (Type == 'Corporate') {
-                        SelectText = 'Select Corporate Traveler';
-                    } else {
-                        SelectText = 'Select SubAgent';
-                    }
-                    select.append($('<option/>', {
-                        value: "",
-                        text: SelectText
-                    }));
-                    $.each(Data, function (index, itemData) {
-                        select.append($('<option/>', {
-                            value: itemData.Value,
-                            text: itemData.Text
-                        }));
-                    });
-                    $("#login-logout").load("/Flight/Home/ChangeAmount", { UserId: element.val(), Type: Type });
-                    //refresh payment div
-                    if (path == "/Flight") {
-                        window.location = "/Flight";
-                    }
-                    else if (path == "/Hotel") {
-                        window.location = "/Hotel";
-                        Insurance
-                    }
-                    else if (path == "/Insurance") {
-                        window.location = "/Insurance";
-                    }
-                    else if (path.contains("Flight")) {
-                        $("#Payment").load("/Flight/Home/Payment");
-                    }
-                    else if (path.contains("Insurance")) {
-                        $("#Payment").load("/Insurance/Home/Payment");
-                    }
-                    else if (path.contains("Hotel")) {
-                        alert(path);
-                        $("#Payment").load("/Hotel/Home/Payment");
-                    }
-                });
-
-        }
-    }
-
-
-</script>
-<script type="text/javascript">
-    function addClassprofile(div) {
-        jQuery(div).toggleClass('hide-profile-menu')
-        return false;
-    }
-    function addClassretrievebooking(div) {
-        jQuery(div).toggleClass('hide-rievebooking-menu')
-        return false;
-    }
-
-    $(document).click(function (event) {
-        //if you click on anything except the modal itself or the "open modal" link, close the modal
-        if ($(event.target)[0].className != "retrieve-btn" && $(event.target)[0].className != "form-control") {
-            $(".retrieve-booking-form ").removeClass("hide-rievebooking-menu");
-        }
-        if ($(event.target)[0].className != "name") {
-
-            $(".profile-dropdown ").removeClass("hide-profile-menu");
-
-        }
-    });
-
-    function SaveRegister() {
-
-        $("#dvRegError").html('');
-        $("#dvRegError").hide();
-        var status = true;
-        var FirstName = $("#txtRegFirstName").val();
-        var LastName = $("#txtRegLastName").val();
-        var Email = $("#txtRegEmail").val();
-        var Password = $("#txtRegPassword").val();
-        if (FirstName == '') {
-            $("#txtRegFirstName").addClass('input-validation-error');
-            status = false;
-        }
-        if (LastName == '') {
-            $("#txtRegLastName").addClass('input-validation-error');
-            status = false;
-        }
-        if (Email == '') {
-            $("#txtRegEmail").addClass('input-validation-error');
-            status = false;
-        }
-
-        if (!validatePassword(Password)) {
-            $("#dvRegError").show();
-            $("#dvRegError").html('The Password should be minimum 8 characters long and should include 1 Capital letter, 1 Small letter, 1 Number and 1 Special Character i.e., ! @ # $ &amp; *');
-            status = false;
-        }
-
-        if (!validateEmail(Email)) {
-            $("#dvRegError").show();
-            $("#dvRegError").html('You have entered an invalid email address!');
-            status = false;
-        }
-        if (status == false) {
-            return false;
-        }
-        else {
-            $('#register-tab').block({ message: null });
-
-            var formData = $("#frmRegister").serialize();
-            $.post("/Home/CreateUser", formData,
-                function (data) {
-                    $('#register-tab').unblock();
-                    if ('' == "1") {
-                        grecaptcha.reset();
-                    }
-                    if (data == 'Success') {
-                        $("#registration").dialog("close");
-                        alert('Your account has successfully created. Please login to continue.');
-                        $("#txtRegFirstName,#txtRegLastName,#txtRegEmail,#txtRegPassword").val('');
-                    } else {
-                        $("#dvRegError").show();
-                        $("#dvRegError").html(data);
-                    }
-                });
-        }
-    }
-    function Country() {
-        //console.log($("#ddlcountry").val());
-        var id = $("#ddlcountry").val();
-        $.post("/Home/ChangeLanguage", { LanguageId: id },
-            function (data) {
-                if (data.IsSuccess == true) {
-                    location.href = window.location.pathname;
-                    if (location.href.includes("/cms") || location.href.includes("/Cms")) {
-                        location.href = "/";
-                    }
-                }
-            });
-
-    }
-    function SwitchLanguage(id) {
-        $.post("/Home/ChangeLanguage", { LanguageId: id },
-            function (data) {
-                if (data.IsSuccess == true) {
-                    location.href = window.location.pathname;
-                    if (location.href.includes("/cms") || location.href.includes("/Cms")) {
-                        location.href = "/";
-                    }
-                }
-            });
-    }
-
-    $(document).ready(function () {
-        $(".brandcloseicon").click(function () {
-            $(".barandclose").hide();
-        });
-    });
-</script>
-
-
-<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Cairo:200,300,400,600,700,900&amp;subset=arabic" rel="stylesheet">
-
-<div class="b2b-link">
-    <a href="../Login">
-        <p>Business Solution</p>
-    </a>
-</div>
-<div id="DivTimeOut" class="timeqount1 l" style="display:none;">
-    <div class="timeqount1-left">
-        <label>Time Out</label>
-    </div>
-    <div class="timeqount1-right">
-        <label class="time-no"><i>&nbsp;</i> <span id="">Minutes </span> </label>
-        <label class="second-no"><i>&nbsp;</i><span>Second </span> </label>
-    </div>
-    <div class="c"></div>
-</div>
-
-
-<header class="navbar-light header-sticky" id="header">
-    <!-- Logo Nav START -->
-    <nav class="navbar navbar-expand-xl">
-
-        <div class="container">
-            <!-- Logo START -->
-            <a class="/cms/home" href="index.html" target=""><img
-                    src="../Images/logo5.png"
-                    alt="" width="100px"/></a>
-            <!-- Logo END -->
-            <!-- Responsive navbar toggler -->
-            <button class="navbar-toggler ms-auto ms-sm-0 p-0 p-sm-2" type="button"
-                data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
-                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-animation">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </span>
-                <span class="d-none d-sm-inline-block small">Menu</span>
-            </button>
-
-
-            <!-- Main navbar START -->
-            <div class="collapse navbar-collapse justify-content-center align-items-center" id="navbarCollapse">
-                <ul
-                    class="navbar-nav navbar-nav-scroll nav-pills-primary-soft text-center ">
-                    <!-- Nav item Hotel -->
-                    <li class="nav-item" id="li_tab_home">
-
-                        <a class="nav-link" href="index.html">
-
-                            Home
-                        </a>
-
-                    </li>
-
-                    <li class="nav-item" id="cms-packages">
-
-                        <a class="nav-link" href="cms/holidaypackages">
-
-                            Domestic tourism
-
-                        </a>
-
-                    </li>
-                    <li class="nav-item" id="cms-aboutus">
-
-                        <a class="nav-link" href="cms/about-us-1">
-
-                            About Us
-                        </a>
-
-                    </li>
-                    <li class="nav-item" id="cms-services">
-
-                        <a class="nav-link" href="cms/services-1-1-1-1-1-1">
-
-                            Services
-                        </a>
-
-                    </li>
-                    <li class="nav-item" id="cms-contactus">
-
-                        <a class="nav-link" href="Cms/ContactUs">
-
-                            Contact Us
-                        </a>
-
-                    </li>
-                    <li class="nav-item " id="cms-b2bRegister">
-                        <a class="nav-link" href="Login/TravelAgentRegistration">
-
-                            B2B Register
-
-                        </a>
-                    </li>
-
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="index.html#" id="listingMenu"
-                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span>English</span>
-                        </a>
-
-                        <ul class="dropdown-menu" aria-labelledby="listingMenu">
-                            <li class="dropdown-submenu dropend" id="cms-packages">
-                                <a class="tx" href="javascript:void(0);" onclick='SwitchLanguage(2)'
-                                    rel="external">
-                                    <i class="fa fa-language" aria-hidden="true"></i> العربية
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-
-
-
-                </ul>
-
-
-
-
-            </div>
-
-
-            <!-- Main navbar END -->
-            <!-- Nav category menu START -->
-            <!-- <div class="navbar-collapse collapse" id="navbarCategoryCollapse">
-                <ul
-                    class="navbar-nav navbar-nav-scroll nav-pills-primary-soft text-center ms-auto1 p-2 p-xl-0">
-
-                    <li class="nav-item ms-2 d-none d-sm-block">
-                        <a id="abtnRegister" class="btn btn-sm btn-primary-soft mb-0"
-                            href="javascript:void(0);" onclick="changeLoginTab('Register');"
-                            data-bs-toggle="modal" data-bs-target="#login"> <i class="fa fa-user"></i>
-                        </a>
-                    </li>
-
-                </ul>
-            </div> -->
-
-
-        </div>
-    </nav>
-    <!-- Logo Nav END -->
-</header>
-
-<div class="header-bottom payment-request">
-    <div class="wapper">
-
-
-        <div class="c"></div>
-    </div>
-</div>
-<!-- Modal -->
-
-
-<div class="modal fade login-modal" id="forgot" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content forgot-password">
-            <div class="modal-body">
-                <div>
-                    <!-- Nav tabs -->
-                    <div class="tab-list">
-                        <ul class="nav-tabs" role="tablist">
-                            <li role="presentation" class="active login-tab"><a href="holidaypackages#login-tab" aria-controls="login" role="tab" data-toggle="tab">Forgot your password?</a></li>
-                        </ul>
-                        <button type="button" class="dialog-close" data-dismiss="modal" aria-label="dialog-close"><span aria-hidden="true">&times;</span></button>
-                        <div class="c"></div>
-                    </div>
-                    <!-- Tab panes -->
-                    <div class="tab-content">
-                        <div role="tabpanel" class="tab-pane active" id="login-tabs">
-                            <form action="https://www.rabietours.com/Home/ForgotPassword" id="ForgetPassword" method="post" novalidate="novalidate">
-                                <input id="GroupType" name="GroupType" value="WLK" type="hidden">
-                                <div class="login-content">
-                                    <div id="dvForgot" class="errormsg close" style="display: none;">
-                                    </div>
-                                    <div class="login-row">
-                                        <p>
-                                            If you are having difficulty logging in, you can reset your password by typing the Email Address that you used while registration. You will receive an email with a new password.
-                                        </p>
-                                    </div>
-                                    <div class="login-row">
-                                        <div class="login-label"><label>Email</label></div>
-                                        <div class="login-texbox"><input id="txtForgPassEmail" class="form-control" name="EmailAddress" placeholder="" value="" type="text"></div>
-                                    </div>
-
-                                    <div class="login-btn">
-                                        <div class="loginbtn r">
-                                            <input class="btn-red" name="" value="Reset Password" type="button" onclick="return ResetPassword();">
-                                        </div>
-                                        <div class="c"></div>
-                                    </div>
+                    <header class="navbar-light header-sticky" id="header">
+                        <!-- Logo Nav START -->
+                        <nav class="navbar navbar-expand-xl">
+                    
+                            <div class="container">
+                                <!-- Logo START -->
+                                <a class="/cms/home" href="index.html" target=""><img
+                                        src="../Images/logo5.png"
+                                        alt="" width="100px"/></a>
+                                <!-- Logo END -->
+                                <!-- Responsive navbar toggler -->
+                                <button class="navbar-toggler ms-auto ms-sm-0 p-0 p-sm-2" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+                                    aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                                    <span class="navbar-toggler-animation">
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                    </span>
+                                    <span class="d-none d-sm-inline-block small">Menu</span>
+                                </button>
+                    
+                    
+                                <!-- Main navbar START -->
+                                <div class="collapse navbar-collapse justify-content-center align-items-center" id="navbarCollapse">
+                                    <ul
+                                        class="navbar-nav navbar-nav-scroll nav-pills-primary-soft text-center ">
+                                        <!-- Nav item Hotel -->
+                                        <li class="nav-item" id="li_tab_home">
+                    
+                                            <a class="nav-link" href="index.html">
+                    
+                                                Home
+                                            </a>
+                    
+                                        </li>
+                    
+                                        <li class="nav-item" id="cms-packages">
+                    
+                                            <a class="nav-link" href="cms/holidaypackages">
+                    
+                                                Domestic tourism
+                    
+                                            </a>
+                    
+                                        </li>
+                                        <li class="nav-item" id="cms-aboutus">
+                    
+                                            <a class="nav-link" href="cms/about-us-1">
+                    
+                                                About Us
+                                            </a>
+                    
+                                        </li>
+                                        <li class="nav-item" id="cms-services">
+                    
+                                            <a class="nav-link" href="cms/services-1-1-1-1-1-1">
+                    
+                                                Services
+                                            </a>
+                    
+                                        </li>
+                                        <li class="nav-item" id="cms-contactus">
+                    
+                                            <a class="nav-link" href="Cms/ContactUs">
+                    
+                                                Contact Us
+                                            </a>
+                    
+                                        </li>
+                                        <li class="nav-item " id="cms-b2bRegister">
+                                            <a class="nav-link" href="Login/TravelAgentRegistration">
+                    
+                                                B2B Register
+                    
+                                            </a>
+                                        </li>
+                    
+                                        <li class="nav-item dropdown">
+                                            <a class="nav-link dropdown-toggle" href="index.html#" id="listingMenu"
+                                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <span>English</span>
+                                            </a>
+                    
+                                            <ul class="dropdown-menu" aria-labelledby="listingMenu">
+                                                <li class="dropdown-submenu dropend" id="cms-packages">
+                                                    <a class="tx" href="javascript:void(0);" onclick='SwitchLanguage(2)'
+                                                        rel="external">
+                                                        <i class="fa fa-language" aria-hidden="true"></i> العربية
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                    
+                    
+                    
+                                    </ul>
+                    
+                    
+                    
+                    
                                 </div>
-                                <div class="login-footer">
-                                    Looking for our Business Solution? <a href="../Login">
-                                        <span>Access it here!</span>
-                                    </a>
-                                    <div class="c"></div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-                <div class="c"></div>
-
-                </header>
+                    
+                    
+                                <!-- Main navbar END -->
+                                <!-- Nav category menu START -->
+                                <!-- <div class="navbar-collapse collapse" id="navbarCategoryCollapse">
+                                    <ul
+                                        class="navbar-nav navbar-nav-scroll nav-pills-primary-soft text-center ms-auto1 p-2 p-xl-0">
+                    
+                                        <li class="nav-item ms-2 d-none d-sm-block">
+                                            <a id="abtnRegister" class="btn btn-sm btn-primary-soft mb-0"
+                                                href="javascript:void(0);" onclick="changeLoginTab('Register');"
+                                                data-bs-toggle="modal" data-bs-target="#login"> <i class="fa fa-user"></i>
+                                            </a>
+                                        </li>
+                    
+                                    </ul>
+                                </div> -->
+                    
+                    
+                            </div>
+                        </nav>
+                        <!-- Logo Nav END -->
+                    </header>
 
 
                             <div class="add-left">
@@ -2095,7 +1546,7 @@
             </script>
 
 
-            <div class="rs-footer footer-style-1">
+            <div class="rs-footer footer-style-1 section_footer">
                 <div class="container">
                     <div class="row">
 
@@ -2207,16 +1658,16 @@
 
                     <p class="r">
 
-                        Copyright © 2019-2023 Al Rabie Tours . All Rights Reserved | <a
-                            title="Powered by Systrixit Solutions" href="https://www.systrixit.com"><img class="x-logo"
-                                src="Content/Site/imagescustomize/x-iocn.png" /></a>
+                        Copyright © 2019-2023 Audi Tours . All Rights Reserved | <a
+                            title="Powered by Systrixit Solutions" href="https://www.systrixit.com">
+                            <!-- <img class="x-logo" src="Content/Site/imagescustomize/x-iocn.png" /></a> -->
 
                     </p>
 
-                    <h6 class="l">
+                    <!-- <h6 class="l">
                         <a href="index.html#"><img src="Content/Site/imagescustomize/visa-icon.png" alt="visa-icon">
                         </a>
-                    </h6>
+                    </h6> -->
 
                     <div class="c"></div>
                 </div>
